@@ -47,12 +47,15 @@
       "kodibrain <gitkodibrain@gmail.com>"
     ],
     "keywords": [
-      "gas",
-      "energy",
-      "consumption",
-      "cost",
-      "meter",
-      "ioBroker"
+        "iobroker",
+        "gas",
+        "energy",
+        "consumption",
+        "meter",
+        "counter",
+        "tariff",
+        "cost",
+        "billing"
     ],
     "licenseInformation": {
       "type": "free",
@@ -83,7 +86,6 @@
         "admin": ">=7.0.23"
       }
     ],
-    "installedFrom": "/opt/iobroker/Adapter/ioBroker.energy-gas"
   },
   "native": {
     "meterState": "",

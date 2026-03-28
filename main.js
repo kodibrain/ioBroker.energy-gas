@@ -3,24 +3,15 @@
 const utils = require('@iobroker/adapter-core');
 const { ensureStates } = require('./lib/states');
 const { buildOutputValues, closePreviousDay } = require('./lib/engine');
-const {
-    getTariffs,
-    getCurrentTariff,
-    findTariffIndexByStartDate
-} = require('./lib/tariffs');
+const { getTariffs, getCurrentTariff, findTariffIndexByStartDate } = require('./lib/tariffs');
 
-const {
-    dateKey,
-    addYears,
-    fmtDate,
-    parseNum,
-} = require('./lib/utils');
+const { dateKey, addYears, fmtDate, parseNum } = require('./lib/utils');
 
 class EnergyGas extends utils.Adapter {
     constructor(options = {}) {
         super({
             ...options,
-            name: 'energy-gas'
+            name: 'energy-gas',
         });
 
         this.refreshTimer = null;
@@ -88,7 +79,9 @@ class EnergyGas extends utils.Adapter {
     }
 
     async onStateChange(id, state) {
-        if (!state) return;
+        if (!state) {
+            return;
+        }
 
         if (id === `${this.namespace}.verbrauch.zaehlerstand` && state.ack !== true) {
             try {
@@ -101,7 +94,9 @@ class EnergyGas extends utils.Adapter {
             return;
         }
 
-        if (id !== this.getConfiguredInputStateId()) return;
+        if (id !== this.getConfiguredInputStateId()) {
+            return;
+        }
 
         this.log.debug(`Zählerstandsänderung erkannt: ${id} = ${state.val}`);
 
@@ -111,7 +106,9 @@ class EnergyGas extends utils.Adapter {
             }
 
             const meterValue = await this.readCurrentMeterValue();
-            if (meterValue === null) throw new Error(this.getInvalidInputMessage());
+            if (meterValue === null) {
+                throw new Error(this.getInvalidInputMessage());
+            }
 
             await this.handleValueUpdate(meterValue);
             await this.updateConnection(true);
@@ -128,9 +125,13 @@ class EnergyGas extends utils.Adapter {
     getConfiguredInputStateId() {
         const sourceType = this.getSourceType();
         if (sourceType === 'counter') {
-            return this.config.counterState && String(this.config.counterState).trim() ? String(this.config.counterState).trim() : '';
+            return this.config.counterState && String(this.config.counterState).trim()
+                ? String(this.config.counterState).trim()
+                : '';
         }
-        return this.config.meterState && String(this.config.meterState).trim() ? String(this.config.meterState).trim() : '';
+        return this.config.meterState && String(this.config.meterState).trim()
+            ? String(this.config.meterState).trim()
+            : '';
     }
 
     getMissingInputMessage() {
@@ -148,7 +149,9 @@ class EnergyGas extends utils.Adapter {
 
     async subscribeConfiguredInputState() {
         const inputStateId = this.getConfiguredInputStateId();
-        if (!inputStateId) return;
+        if (!inputStateId) {
+            return;
+        }
         await this.subscribeForeignStatesAsync(inputStateId);
     }
 
@@ -167,27 +170,41 @@ class EnergyGas extends utils.Adapter {
     }
 
     normalizeCounterRawValue(rawValue) {
-        if (rawValue === null || rawValue === undefined || rawValue === '') return null;
+        if (rawValue === null || rawValue === undefined || rawValue === '') {
+            return null;
+        }
 
         if (typeof rawValue === 'boolean' || typeof rawValue === 'number') {
             return rawValue;
         }
 
         const str = String(rawValue).trim();
-        if (!str) return null;
+        if (!str) {
+            return null;
+        }
 
-        if (str.toLowerCase() === 'true') return true;
-        if (str.toLowerCase() === 'false') return false;
+        if (str.toLowerCase() === 'true') {
+            return true;
+        }
+        if (str.toLowerCase() === 'false') {
+            return false;
+        }
 
         const num = parseNum(str, NaN);
-        if (Number.isFinite(num)) return num;
+        if (Number.isFinite(num)) {
+            return num;
+        }
 
         return str;
     }
 
     detectCounterType(rawValue) {
-        if (typeof rawValue === 'boolean') return 'boolean';
-        if (typeof rawValue === 'number' && Number.isFinite(rawValue)) return 'numeric';
+        if (typeof rawValue === 'boolean') {
+            return 'boolean';
+        }
+        if (typeof rawValue === 'number' && Number.isFinite(rawValue)) {
+            return 'numeric';
+        }
         return null;
     }
 
@@ -236,7 +253,9 @@ class EnergyGas extends utils.Adapter {
 
     async readCurrentInputRawValue() {
         const inputStateId = this.getConfiguredInputStateId();
-        if (!inputStateId) return null;
+        if (!inputStateId) {
+            return null;
+        }
 
         const state = await this.getForeignStateAsync(inputStateId);
         if (!state || state.val === null || state.val === undefined || state.val === '') {
@@ -247,7 +266,9 @@ class EnergyGas extends utils.Adapter {
     }
 
     async computeMeterValueFromInput(rawValue) {
-        if (rawValue === null || rawValue === undefined || rawValue === '') return null;
+        if (rawValue === null || rawValue === undefined || rawValue === '') {
+            return null;
+        }
 
         const sourceType = this.getSourceType();
         if (sourceType !== 'counter') {
@@ -256,41 +277,59 @@ class EnergyGas extends utils.Adapter {
         }
 
         const counterFactor = this.getCounterFactor();
-        if (!Number.isFinite(counterFactor)) return null;
+        if (!Number.isFinite(counterFactor)) {
+            return null;
+        }
 
         const detectedType = await this.getDetectedCounterType(rawValue);
-        if (!detectedType) return null;
+        if (!detectedType) {
+            return null;
+        }
 
         const counterOffset = await this.getCounterOffset();
 
         if (detectedType === 'numeric') {
             const counterValue = parseNum(rawValue, NaN);
-            if (!Number.isFinite(counterValue)) return null;
-            return (counterValue * counterFactor) + counterOffset;
+            if (!Number.isFinite(counterValue)) {
+                return null;
+            }
+            return counterValue * counterFactor + counterOffset;
         }
 
         const pulseTotal = await this.getPulseTotal();
-        return (pulseTotal * counterFactor) + counterOffset;
+        return pulseTotal * counterFactor + counterOffset;
     }
 
     async readCurrentMeterValue() {
         const rawValue = await this.readCurrentInputRawValue();
-        if (rawValue === null) return null;
+        if (rawValue === null) {
+            return null;
+        }
         return this.computeMeterValueFromInput(rawValue);
     }
 
     async initCounterBaselineIfNeeded() {
-        if (this.getSourceType() !== 'counter') return;
+        if (this.getSourceType() !== 'counter') {
+            return;
+        }
 
         const rawValue = await this.readCurrentInputRawValue();
-        if (rawValue === null) return;
+        if (rawValue === null) {
+            return;
+        }
 
         const detectedType = await this.getDetectedCounterType(rawValue);
-        if (!detectedType) return;
+        if (!detectedType) {
+            return;
+        }
 
         if (detectedType === 'numeric') {
             const lastRawState = await this.getStateAsync('_intern.counter_last_raw');
-            const hasLastRaw = lastRawState && lastRawState.val !== null && lastRawState.val !== undefined && String(lastRawState.val) !== '';
+            const hasLastRaw =
+                lastRawState &&
+                lastRawState.val !== null &&
+                lastRawState.val !== undefined &&
+                String(lastRawState.val) !== '';
             if (!hasLastRaw) {
                 await this.setStateAsync('_intern.counter_last_raw', { val: String(parseNum(rawValue, 0)), ack: true });
             }
@@ -298,7 +337,11 @@ class EnergyGas extends utils.Adapter {
         }
 
         const lastRawState = await this.getStateAsync('_intern.counter_last_raw');
-        const hasLastRaw = lastRawState && lastRawState.val !== null && lastRawState.val !== undefined && String(lastRawState.val) !== '';
+        const hasLastRaw =
+            lastRawState &&
+            lastRawState.val !== null &&
+            lastRawState.val !== undefined &&
+            String(lastRawState.val) !== '';
         if (!hasLastRaw) {
             await this.setStateAsync('_intern.counter_last_raw', { val: String(rawValue === true), ack: true });
         }
@@ -320,16 +363,22 @@ class EnergyGas extends utils.Adapter {
             }
 
             const lastRawState = await this.getStateAsync('_intern.counter_last_raw');
-            const lastRaw = lastRawState && lastRawState.val !== null && lastRawState.val !== undefined && String(lastRawState.val) !== ''
-                ? parseNum(lastRawState.val, NaN)
-                : NaN;
+            const lastRaw =
+                lastRawState &&
+                lastRawState.val !== null &&
+                lastRawState.val !== undefined &&
+                String(lastRawState.val) !== ''
+                    ? parseNum(lastRawState.val, NaN)
+                    : NaN;
 
             if (Number.isFinite(lastRaw) && currentRaw < lastRaw) {
                 const currentMeterState = await this.getStateAsync('verbrauch.zaehlerstand');
                 const currentMeter = currentMeterState ? parseNum(currentMeterState.val, 0) : 0;
-                const newOffset = currentMeter - (currentRaw * counterFactor);
+                const newOffset = currentMeter - currentRaw * counterFactor;
                 await this.setCounterOffset(newOffset);
-                this.log.warn(`Numerischer Counter ist kleiner geworden (${lastRaw} -> ${currentRaw}). Offset wurde automatisch auf ${newOffset} m³ angepasst, damit der Zählerstand nicht zurückspringt.`);
+                this.log.warn(
+                    `Numerischer Counter ist kleiner geworden (${lastRaw} -> ${currentRaw}). Offset wurde automatisch auf ${newOffset} m³ angepasst, damit der Zählerstand nicht zurückspringt.`,
+                );
             }
 
             await this.setStateAsync('_intern.counter_last_raw', { val: String(currentRaw), ack: true });
@@ -347,7 +396,7 @@ class EnergyGas extends utils.Adapter {
         const debounceMs = this.getCounterDebounceMs();
 
         if (!lastBool && normalized === true) {
-            if ((now - this.lastPulseTs) >= debounceMs) {
+            if (now - this.lastPulseTs >= debounceMs) {
                 const pulses = (await this.getPulseTotal()) + 1;
                 await this.setPulseTotal(pulses);
                 await this.setStateAsync('verbrauch.counter', { val: pulses, ack: true });
@@ -404,10 +453,10 @@ class EnergyGas extends utils.Adapter {
             if (!Number.isFinite(counterValue)) {
                 throw new Error('Counter-Datenpunkt liefert keinen numerischen Wert');
             }
-            newOffset = desiredMeter - (counterValue * counterFactor);
+            newOffset = desiredMeter - counterValue * counterFactor;
         } else {
             const pulses = await this.getPulseTotal();
-            newOffset = desiredMeter - (pulses * counterFactor);
+            newOffset = desiredMeter - pulses * counterFactor;
         }
 
         await this.setCounterOffset(newOffset);
@@ -445,15 +494,16 @@ class EnergyGas extends utils.Adapter {
 
         if (!marker) {
             await this.setStateAsync('_intern.monat_start', {
-                val: (existingMonthStart !== null && existingMonthStart !== undefined && existingMonthStart !== '')
-                    ? Number(existingMonthStart)
-                    : currentMeter,
-                ack: true
+                val:
+                    existingMonthStart !== null && existingMonthStart !== undefined && existingMonthStart !== ''
+                        ? Number(existingMonthStart)
+                        : currentMeter,
+                ack: true,
             });
 
             await this.setStateAsync('_intern.monat_marker', {
                 val: currentMonthMarker,
-                ack: true
+                ack: true,
             });
         }
     }
@@ -465,7 +515,9 @@ class EnergyGas extends utils.Adapter {
         const monthMarkerState = await this.getStateAsync('_intern.monat_marker');
         const marker = monthMarkerState && monthMarkerState.val ? String(monthMarkerState.val) : '';
 
-        if (marker === currentMonthMarker) return;
+        if (marker === currentMonthMarker) {
+            return;
+        }
 
         let newMonthStart = currentMeter;
 
@@ -483,20 +535,28 @@ class EnergyGas extends utils.Adapter {
     }
 
     async handleAutoCreateNextTariff(currentMeter) {
-        if (!this.config.autoCreateNextTariffAfterOneYear) return;
+        if (!this.config.autoCreateNextTariffAfterOneYear) {
+            return;
+        }
 
         const now = new Date();
         const tariffRows = Array.isArray(this.config.tariffs) ? [...this.config.tariffs] : [];
-        if (!tariffRows.length) return;
+        if (!tariffRows.length) {
+            return;
+        }
 
         let changed = false;
 
         const saveTariffs = async () => {
-            if (!changed) return;
+            if (!changed) {
+                return;
+            }
 
             const objId = `system.adapter.${this.namespace}`;
             const instanceObj = await this.getForeignObjectAsync(objId);
-            if (!instanceObj || !instanceObj.native) return;
+            if (!instanceObj || !instanceObj.native) {
+                return;
+            }
 
             instanceObj.native.tariffs = tariffRows;
             await this.setForeignObjectAsync(objId, instanceObj);
@@ -505,7 +565,9 @@ class EnergyGas extends utils.Adapter {
         };
 
         const currentTariff = getCurrentTariff({ ...this.config, tariffs: tariffRows }, now);
-        if (!currentTariff) return;
+        if (!currentTariff) {
+            return;
+        }
 
         const currentIndex = findTariffIndexByStartDate({ ...this.config, tariffs: tariffRows }, currentTariff.start);
 
@@ -520,12 +582,12 @@ class EnergyGas extends utils.Adapter {
 
                 this.log.info(
                     `Startzählerstand für aktiven Tarif ${rawCurrentTariff.name || fmtDate(currentTariff.start)} ` +
-                    `(${fmtDate(currentTariff.start)}) automatisch auf ${currentMeter} gesetzt`
+                        `(${fmtDate(currentTariff.start)}) automatisch auf ${currentMeter} gesetzt`,
                 );
             } else if (currentStartMeter <= 0 && shouldSkipAutoSetForCounter) {
                 this.log.info(
                     'Startzählerstand des aktiven Tarifs wurde im Counter-Modus nicht automatisch gesetzt, ' +
-                    'weil der berechnete Zählerstand aktuell 0 ist.'
+                        'weil der berechnete Zählerstand aktuell 0 ist.',
                 );
             }
         }
@@ -533,10 +595,14 @@ class EnergyGas extends utils.Adapter {
         await saveTariffs();
 
         const nextStart = addYears(currentTariff.start, 1);
-        if (dateKey(now) < dateKey(nextStart)) return;
+        if (dateKey(now) < dateKey(nextStart)) {
+            return;
+        }
 
         const existingNextIndex = findTariffIndexByStartDate({ ...this.config, tariffs: tariffRows }, nextStart);
-        if (existingNextIndex >= 0) return;
+        if (existingNextIndex >= 0) {
+            return;
+        }
 
         tariffRows.push({
             aktiv: true,
@@ -546,7 +612,7 @@ class EnergyGas extends utils.Adapter {
             grundgebuehr: String(currentTariff.grundgebuehr),
             arbeitspreis: String(currentTariff.arbeitspreis),
             abschlag: String(currentTariff.abschlag),
-            abschlagTag: currentTariff.abschlagTag
+            abschlagTag: currentTariff.abschlagTag,
         });
 
         changed = true;
@@ -554,7 +620,7 @@ class EnergyGas extends utils.Adapter {
 
         this.log.info(
             `Folgetarif automatisch angelegt: ${fmtDate(nextStart)} ` +
-            `(Startzählerstand bleibt leer bis dieser Tarif aktiv wird)`
+                `(Startzählerstand bleibt leer bis dieser Tarif aktiv wird)`,
         );
     }
 
@@ -578,11 +644,9 @@ class EnergyGas extends utils.Adapter {
         const dayStartState = await this.getStateAsync('_intern.day_start');
         const dayStartDateState = await this.getStateAsync('_intern.day_start_date');
         const ledgerState = await this.getStateAsync('_intern.ledger_json');
-        const monthStartState = await this.getStateAsync('_intern.monat_start');
 
         const dayStartValue = dayStartState ? parseNum(dayStartState.val, meterValue) : meterValue;
         const dayStartDate = dayStartDateState && dayStartDateState.val ? String(dayStartDateState.val) : todayKey;
-        const monthStartValue = monthStartState ? parseNum(monthStartState.val, meterValue) : meterValue;
 
         let ledger = {};
         if (ledgerState && ledgerState.val) {
@@ -607,7 +671,9 @@ class EnergyGas extends utils.Adapter {
         const currentMonthStartState = await this.getStateAsync('_intern.monat_start');
 
         const currentDayStart = currentDayStartState ? parseNum(currentDayStartState.val, meterValue) : meterValue;
-        const currentMonthStart = currentMonthStartState ? parseNum(currentMonthStartState.val, meterValue) : meterValue;
+        const currentMonthStart = currentMonthStartState
+            ? parseNum(currentMonthStartState.val, meterValue)
+            : meterValue;
 
         const values = buildOutputValues(this.config, meterValue, currentDayStart, ledger, currentMonthStart);
 

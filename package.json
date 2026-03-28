@@ -1,7 +1,7 @@
 {
   "name": "iobroker.energy-gas",
   "version": "0.0.5",
-  "description": "energy-gas",
+  "description": "Calculate gas consumption, energy (kWh) and costs from gas meters or pulse counters with tariff support",
   "author": {
     "name": "kodibrain",
     "email": "gitkodibrain@gmail.com"
@@ -10,13 +10,16 @@
   "homepage": "https://github.com/kodibrain/ioBroker.energy-gas",
   "license": "MIT",
   "keywords": [
+    "iobroker",
     "gas",
     "energy",
     "consumption",
-    "cost",
     "meter",
-    "ioBroker"
-  ],
+    "counter",
+    "tariff",
+    "cost",
+    "billing"
+    ],
   "repository": {
     "type": "git",
     "url": "https://github.com/kodibrain/ioBroker.energy-gas.git"

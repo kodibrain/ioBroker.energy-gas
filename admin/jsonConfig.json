@@ -1,0 +1,270 @@
+{
+  "i18n": true,
+  "type": "tabs",
+  "items": {
+    "mainTab": {
+      "type": "panel",
+      "label": "Allgemein",
+      "items": {
+        "headlineGeneral1": {
+          "type": "header",
+          "text": "Quelle",
+          "size": 2,
+          "newLine": true
+        },
+        "sourceType": {
+          "type": "select",
+          "label": "Eingangsart",
+          "options": [
+            {
+              "label": "Gaszähler",
+              "value": "meter"
+            },
+            {
+              "label": "Counter",
+              "value": "counter"
+            }
+          ],
+          "xs": 12,
+          "sm": 6,
+          "md": 6,
+          "lg": 6,
+          "xl": 6
+        },
+        "meterState": {
+          "type": "objectId",
+          "label": "Gaszähler Datenpunkt",
+          "hidden": "data.sourceType !== 'meter'",
+          "xs": 12,
+          "sm": 12,
+          "md": 12,
+          "lg": 12,
+          "xl": 12
+        },
+        "counterState": {
+          "type": "objectId",
+          "label": "Counter Datenpunkt",
+          "hidden": "data.sourceType !== 'counter'",
+          "xs": 12,
+          "sm": 12,
+          "md": 12,
+          "lg": 12,
+          "xl": 12
+        },
+        "counterFactor": {
+          "type": "text",
+          "label": "Counter Faktor",
+          "help": "Wert je Counter-Schritt in m³. Komma oder Punkt möglich, z. B. 0,01",
+          "hidden": "data.sourceType !== 'counter'",
+          "xs": 12,
+          "sm": 6,
+          "md": 6,
+          "lg": 6,
+          "xl": 6
+        },
+        "counterType": {
+          "type": "select",
+          "label": "Counter-Typ",
+          "options": [
+            {
+              "label": "Automatisch erkennen",
+              "value": "auto"
+            },
+            {
+              "label": "Numerisch",
+              "value": "numeric"
+            },
+            {
+              "label": "Boolean (Impuls)",
+              "value": "boolean"
+            }
+          ],
+          "hidden": "data.sourceType !== 'counter'",
+          "xs": 12,
+          "sm": 6,
+          "md": 6,
+          "lg": 6,
+          "xl": 6
+        },
+        "counterDebounceMs": {
+          "type": "number",
+          "label": "Entprellzeit (ms)",
+          "help": "Nur relevant bei Boolean-Impulsen. Unterdrückt Mehrfachzählungen durch Prellen.",
+          "hidden": "data.sourceType !== 'counter'",
+          "xs": 12,
+          "sm": 6,
+          "md": 6,
+          "lg": 6,
+          "xl": 6,
+          "min": 0
+        },
+        "counterHint": {
+          "type": "staticText",
+          "text": "Im Counter-Modus wird der Typ automatisch erkannt oder manuell vorgegeben. Numerische Counter werden als absoluter Zählwert interpretiert, Boolean-Werte als Impulse. Korrekturen sind später direkt über den Datenpunkt Verbrauch > Zählerstand möglich.",
+          "hidden": "data.sourceType !== 'counter'",
+          "newLine": true
+        },
+        "headlineGeneral2": {
+          "type": "header",
+          "text": "Umrechnung",
+          "size": 2,
+          "newLine": true
+        },
+        "brennwert": {
+          "type": "text",
+          "label": "Brennwert",
+          "help": "Komma oder Punkt möglich, z. B. 11,563",
+          "xs": 12,
+          "sm": 6,
+          "md": 6,
+          "lg": 6,
+          "xl": 6
+        },
+        "zustandszahl": {
+          "type": "text",
+          "label": "Zustandszahl",
+          "help": "Komma oder Punkt möglich, z. B. 0,9468",
+          "xs": 12,
+          "sm": 6,
+          "md": 6,
+          "lg": 6,
+          "xl": 6
+        },
+        "headlineGeneral3": {
+          "type": "header",
+          "text": "Aktualisierung",
+          "size": 2,
+          "newLine": true
+        },
+        "updateMode": {
+          "type": "select",
+          "label": "Aktualisierungsart",
+          "options": [
+            {
+              "label": "Bei Zählerstandsänderung",
+              "value": "change"
+            },
+            {
+              "label": "Per Zeitintervall",
+              "value": "interval"
+            },
+            {
+              "label": "Beides",
+              "value": "both"
+            }
+          ],
+          "xs": 12,
+          "sm": 6,
+          "md": 6,
+          "lg": 6,
+          "xl": 6
+        },
+        "updateIntervalSeconds": {
+          "type": "number",
+          "label": "Intervall in Sekunden",
+          "min": 1,
+          "xs": 12,
+          "sm": 6,
+          "md": 6,
+          "lg": 6,
+          "xl": 6
+        }
+      }
+    },
+    "tariffTab": {
+      "type": "panel",
+      "label": "Tarife",
+      "items": {
+        "headlineTariff1": {
+          "type": "header",
+          "text": "Tarife",
+          "size": 2,
+          "newLine": true
+        },
+        "tariffHint": {
+          "type": "staticText",
+          "text": "Mindestens ein aktiver Tarif ist erforderlich. Der aktuelle und der vorherige Tarif bilden das aktuelle bzw. letzte Abrechnungsjahr. Startzählerstände müssen sauber gepflegt sein.",
+          "newLine": true
+        },
+        "autoCreateNextTariffAfterOneYear": {
+          "type": "checkbox",
+          "label": "Tarife automatisch verwalten",
+          "help": "Erstellt automatisch Folgetarife oder setzt am Tag des Tarifwechsel den aktuellen Zählerstand als Startwert.",
+          "xs": 12,
+          "sm": 12,
+          "md": 12,
+          "lg": 12,
+          "xl": 12
+        },
+        "tariffs": {
+          "type": "table",
+          "label": "Tarife",
+          "xs": 12,
+          "sm": 12,
+          "md": 12,
+          "lg": 12,
+          "xl": 12,
+          "import": true,
+          "export": true,
+          "items": [
+            {
+              "type": "checkbox",
+              "attr": "aktiv",
+              "title": "Aktiv",
+              "width": "80px"
+            },
+            {
+              "type": "text",
+              "attr": "name",
+              "title": "Name",
+              "width": "140px",
+              "placeholder": "Versorger"
+            },
+            {
+              "type": "text",
+              "attr": "startdatum",
+              "title": "Startdatum",
+              "width": "130px",
+              "placeholder": "YYYY-MM-DD"
+            },
+            {
+              "type": "text",
+              "attr": "startzaehlerstand",
+              "title": "Zählerstand zum Wechsel",
+              "width": "140px",
+              "placeholder": "1234,543"
+            },
+            {
+              "type": "text",
+              "attr": "grundgebuehr",
+              "title": "Grundgebühr/Monat €",
+              "width": "150px",
+              "placeholder": "15,99"
+            },
+            {
+              "type": "text",
+              "attr": "arbeitspreis",
+              "title": "Arbeitspreis/kWh €",
+              "width": "150px",
+              "placeholder": "0,0861"
+            },
+            {
+              "type": "text",
+              "attr": "abschlag",
+              "title": "Abschlag Monatlich €",
+              "width": "110px",
+              "placeholder": "105,44"
+            },
+            {
+              "type": "number",
+              "attr": "abschlagTag",
+              "title": "Monatlicher Zahlungstag",
+              "width": "110px",
+              "placeholder": "15"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

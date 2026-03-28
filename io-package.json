@@ -1,0 +1,104 @@
+{
+  "common": {
+    "name": "energy-gas",
+    "version": "0.0.5",
+    "news": {
+      "0.0.5": {
+        "en": "initial release",
+        "de": "Erstveröffentlichung",
+        "ru": "Начальная версия",
+        "pt": "lançamento inicial",
+        "nl": "Eerste uitgave",
+        "fr": "Première version",
+        "it": "Versione iniziale",
+        "es": "Versión inicial",
+        "pl": "Pierwsze wydanie",
+        "uk": "Початкова версія",
+        "zh-cn": "首次出版"
+      }
+    },
+    "titleLang": {
+      "en": "gas consumption",
+      "de": "Gasverbrauch",
+      "ru": "расход газа",
+      "pt": "consumo de gás",
+      "nl": "gasverbruik",
+      "fr": "consommation de gaz",
+      "it": "consumo di gas",
+      "es": "consumo de gas",
+      "pl": "zużycie gazu",
+      "uk": "витрата газу",
+      "zh-cn": "耗气量"
+    },
+    "desc": {
+      "en": "energy-gas",
+      "de": "Energie-Gas",
+      "ru": "энергогаз",
+      "pt": "energia-gás",
+      "nl": "energie-gas",
+      "fr": "énergie-gaz",
+      "it": "energia-gas",
+      "es": "gas-energia",
+      "pl": "gaz energetyczny",
+      "uk": "енерго-газ",
+      "zh-cn": "能源气体"
+    },
+    "authors": [
+      "kodibrain <gitkodibrain@gmail.com>"
+    ],
+    "keywords": [
+      "gas",
+      "energy",
+      "consumption",
+      "cost",
+      "meter",
+      "ioBroker"
+    ],
+    "licenseInformation": {
+      "type": "free",
+      "license": "MIT"
+    },
+    "platform": "Javascript/Node.js",
+    "icon": "energy-gas.png",
+    "enabled": true,
+    "extIcon": "https://raw.githubusercontent.com/kodibrain/ioBroker.energy-gas/main/admin/energy-gas.png",
+    "readme": "https://github.com/kodibrain/ioBroker.energy-gas/blob/main/README.md",
+    "loglevel": "info",
+    "tier": 3,
+    "mode": "daemon",
+    "type": "metering",
+    "compact": true,
+    "connectionType": "local",
+    "dataSource": "push",
+    "adminUI": {
+      "config": "json"
+    },
+    "dependencies": [
+      {
+        "js-controller": ">=6.0.11"
+      }
+    ],
+    "globalDependencies": [
+      {
+        "admin": ">=7.0.23"
+      }
+    ],
+    "installedFrom": "/opt/iobroker/Adapter/ioBroker.energy-gas"
+  },
+  "native": {
+    "meterState": "",
+    "brennwert": "11.563",
+    "zustandszahl": "0.9468",
+    "updateMode": "change",
+    "updateIntervalSeconds": 60,
+    "autoCreateNextTariffAfterOneYear": true,
+    "tariffs": [],
+    "sourceType": "meter",
+    "counterState": "",
+    "counterFactor": "0.001",
+    "counterType": "auto",
+    "counterDebounceMs": 200
+  },
+  "objects": [],
+  "instanceObjects": []
+}

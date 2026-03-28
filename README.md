@@ -1,4 +1,4 @@
-![Logo](admin/energy-gas.png)
+![Logo](admin/energygas.png)
 # ioBroker.energy-gas
 
 **Tests:** ![Test and Release](https://github.com/kodibrain/ioBroker.energy-gas/workflows/Test%20and%20Release/badge.svg)

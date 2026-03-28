@@ -62,9 +62,9 @@
       "license": "MIT"
     },
     "platform": "Javascript/Node.js",
-    "icon": "energy-gas.png",
+    "icon": "energygas.png",
     "enabled": true,
-    "extIcon": "https://raw.githubusercontent.com/kodibrain/ioBroker.energy-gas/main/admin/energy-gas.png",
+    "extIcon": "https://raw.githubusercontent.com/kodibrain/ioBroker.energy-gas/main/admin/energygas.png",
     "readme": "https://github.com/kodibrain/ioBroker.energy-gas/blob/main/README.md",
     "loglevel": "info",
     "tier": 3,

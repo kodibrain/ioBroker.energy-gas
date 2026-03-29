@@ -1,9 +1,9 @@
 {
   "common": {
     "name": "energy-gas",
-    "version": "0.0.8",
+    "version": "0.0.9",
     "news": {
-      "0.0.8": {
+      "0.0.9": {
         "en": "bug fixes",
         "de": "bug fixes",
         "ru": "bug fixes",

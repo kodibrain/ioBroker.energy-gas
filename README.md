@@ -147,6 +147,23 @@ is writable.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.10.0
+
+- Switched complete adapter to **English**
+- Added **i18n support** for admin configuration
+- Prepared translation structure for multi-language support
+
+- Renamed all data point IDs to English
+- Updated internal structure
+- Renamed key paths
+
+#### ⚠️ Important Notice
+This version introduces **breaking changes**:
+- Existing installations will **lose reference to old data points**
+- Scripts, VIS, and dashboards must be updated
+- A clean reconfiguration is recommended
+
+
 ### 0.0.9
 - bug fixes
 

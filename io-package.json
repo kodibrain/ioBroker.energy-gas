@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "energy-gas",
-    "version": "0.0.9",
+    "version": "0.0.10",
     "news": {
+      "0.0.10": {
+        "en": "Starting with version 0.10.0 the adapter is fully available in English and supports internationalization via i18n",
+        "de": "Starting with version 0.10.0 the adapter is fully available in English and supports internationalization via i18n",
+        "ru": "Starting with version 0.10.0 the adapter is fully available in English and supports internationalization via i18n",
+        "pt": "Starting with version 0.10.0 the adapter is fully available in English and supports internationalization via i18n",
+        "nl": "Starting with version 0.10.0 the adapter is fully available in English and supports internationalization via i18n",
+        "fr": "Starting with version 0.10.0 the adapter is fully available in English and supports internationalization via i18n",
+        "it": "Starting with version 0.10.0 the adapter is fully available in English and supports internationalization via i18n",
+        "es": "Starting with version 0.10.0 the adapter is fully available in English and supports internationalization via i18n",
+        "pl": "Starting with version 0.10.0 the adapter is fully available in English and supports internationalization via i18n",
+        "uk": "Starting with version 0.10.0 the adapter is fully available in English and supports internationalization via i18n",
+        "zh-cn": "Starting with version 0.10.0 the adapter is fully available in English and supports internationalization via i18n"
+      },      
       "0.0.9": {
         "en": "bug fixes",
         "de": "bug fixes",

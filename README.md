@@ -9,7 +9,6 @@
 [![NPM](https://nodei.co/npm/iobroker.energy-gas.svg?data=d)](https://nodei.co/npm/iobroker.energy-gas/)
 
 **Tests:** ![Test and Release](https://github.com/kodibrain/ioBroker.energy-gas/workflows/Test%20and%20Release/badge.svg)
-
 ## energy-gas adapter for ioBroker
 
 ### 🧾 Description
@@ -203,3 +202,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+##
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/X8X11WV0GI)

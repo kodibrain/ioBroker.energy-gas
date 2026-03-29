@@ -147,7 +147,7 @@ is writable.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 0.10.0
+### 0.0.10
 
 - Switched complete adapter to **English**
 - Added **i18n support** for admin configuration

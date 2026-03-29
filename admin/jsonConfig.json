@@ -102,7 +102,11 @@
           "type": "staticText",
           "text": "Im Counter-Modus wird der Typ automatisch erkannt oder manuell vorgegeben. Numerische Counter werden als absoluter Zählwert interpretiert, Boolean-Werte als Impulse. Korrekturen sind später direkt über den Datenpunkt Verbrauch > Zählerstand möglich.",
           "hidden": "data.sourceType !== 'counter'",
-          "newLine": true
+          "newLine": true,
+          "xs": 12,
+          "sm": 6,
+          "md": 6,
+          "lg": 6
         },
         "headlineGeneral2": {
           "type": "header",
@@ -184,7 +188,12 @@
         "tariffHint": {
           "type": "staticText",
           "text": "Mindestens ein aktiver Tarif ist erforderlich. Der aktuelle und der vorherige Tarif bilden das aktuelle bzw. letzte Abrechnungsjahr. Startzählerstände müssen sauber gepflegt sein.",
-          "newLine": true
+          "newLine": true,
+          "xs": 12,
+          "sm": 6,
+          "md": 6,
+          "lg": 6,
+          "xl": 6
         },
         "autoCreateNextTariffAfterOneYear": {
           "type": "checkbox",

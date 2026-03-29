@@ -142,13 +142,13 @@ is writable.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.0.6
+- Added JSDoc comments
+
 ### 0.0.5
 * Initial public release
 * Gas meter and counter support
 * Tariff and cost calculation
-
-### **WORK IN PROGRESS**
-* (kodibrain) initial release
 
 ## License
 MIT License

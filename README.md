@@ -146,7 +146,7 @@ is writable.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 0.0.10
+### 0.1.0
 
 - Switched complete adapter to **English**
 - Added **i18n support** for admin configuration
@@ -162,6 +162,8 @@ This version introduces **breaking changes**:
 - Scripts, VIS, and dashboards must be updated
 - A clean reconfiguration is recommended
 
+### 0.0.10
+- bug fixes
 
 ### 0.0.9
 - bug fixes

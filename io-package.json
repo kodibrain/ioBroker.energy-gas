@@ -5,7 +5,16 @@
     "news": {
       "0.0.6": {
         "en": "Added JSDoc comments and fixed lint warnings",
-        "de": "JSDoc-Kommentare hinzugefügt und Lint-Warnungen behoben"
+        "de": "JSDoc-Kommentare hinzugefügt und Lint-Warnungen behoben",
+        "ru": "Добавлены комментарии JSDoc и исправлены предупреждения линтера",
+        "pt": "Comentários JSDoc adicionados e avisos do lint corrigidos",
+        "nl": "JSDoc-commentaar toegevoegd en lint-waarschuwingen opgelost",
+        "fr": "Ajout des commentaires JSDoc et correction des avertissements du lint",
+        "it": "Aggiunti commenti JSDoc e corretti gli avvisi del lint",
+        "es": "Se añadieron comentarios JSDoc y se corrigieron advertencias del lint",
+        "pl": "Dodano komentarze JSDoc i naprawiono ostrzeżenia lint",
+        "uk": "Додано коментарі JSDoc і виправлено попередження lint",
+        "zh-cn": "已添加 JSDoc 注释并修复 lint 警告"
       },
       "0.0.5": {
         "en": "initial release",

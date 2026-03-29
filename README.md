@@ -1,11 +1,14 @@
 ![Logo](admin/energygas.png)
 # ioBroker.energy-gas
 
+[![NPM version](https://img.shields.io/npm/v/iobroker.energy-gas.svg)](https://www.npmjs.com/package/iobroker.energy-gas)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.energy-gas.svg)](https://www.npmjs.com/package/iobroker.energy-gas)
+
+[![NPM](https://nodei.co/npm/iobroker.energy-gas.png?downloads=true)](https://nodei.co/npm/iobroker.energy-gas/)
+
 **Tests:** ![Test and Release](https://github.com/kodibrain/ioBroker.energy-gas/workflows/Test%20and%20Release/badge.svg)
 
 ## energy-gas adapter for ioBroker
-
-energy-gas
 
 ## 🧾 Description
 

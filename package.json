@@ -1,6 +1,6 @@
 {
   "name": "iobroker.energy-gas",
-  "version": "0.0.7",
+  "version": "0.0.9",
   "description": "Calculate gas consumption, energy (kWh) and costs from gas meters or pulse counters with tariff support",
   "author": {
     "name": "kodibrain",
@@ -41,8 +41,8 @@
     "@iobroker/testing": "^5.2.2",
     "@tsconfig/node20": "^20.1.9",
     "@types/iobroker": "^7.1.0",
-    "@types/node": "^20.19.37",
-    "typescript": "~5.9.3"
+    "@types/node": "^25.5.0",
+    "typescript": "~6.0.2"
   },
   "main": "main.js",
   "files": [

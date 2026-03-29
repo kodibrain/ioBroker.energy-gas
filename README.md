@@ -147,6 +147,12 @@ is writable.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.0.9
+- bug fixes
+
+### 0.0.8
+- bug fixes
+
 ### 0.0.7
 - updated README
 

@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "energy-gas",
-    "version": "0.0.6",
+    "version": "0.0.7",
     "news": {
+      "0.0.7": {
+        "en": "Updated README",
+        "de": "README aktualisiert",
+        "ru": "Updated README",
+        "pt": "Updated README",
+        "nl": "Updated README",
+        "fr": "Updated README",
+        "it": "Updated README",
+        "es": "Updated README",
+        "pl": "Updated README",
+        "uk": "Updated README",
+        "zh-cn": "Updated README"
+      },
       "0.0.6": {
         "en": "Added JSDoc comments and fixed lint warnings",
         "de": "JSDoc-Kommentare hinzugefügt und Lint-Warnungen behoben",

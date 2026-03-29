@@ -1,4 +1,4 @@
-![Logo](admin/energy-gas.png)
+![Logo](admin/energygas.png)
 # ioBroker.energy-gas
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.energy-gas.svg)](https://www.npmjs.com/package/iobroker.energy-gas)
@@ -6,23 +6,23 @@
 ![Number of Installations](https://iobroker.live/badges/energy-gas-installed.svg)
 ![Current version in stable repository](https://iobroker.live/badges/energy-gas-stable.svg)
 
-[![NPM](https://nodei.co/npm/iobroker.energy-gas.png?downloads=true)](https://nodei.co/npm/iobroker.energy-gas/)
+[![NPM](https://nodei.co/npm/iobroker.energy-gas.svg?data=d)](https://nodei.co/npm/iobroker.energy-gas/)
 
 **Tests:** ![Test and Release](https://github.com/kodibrain/ioBroker.energy-gas/workflows/Test%20and%20Release/badge.svg)
 
 ## energy-gas adapter for ioBroker
 
-## 🧾 Description
+### 🧾 Description
 
 The adapter **ioBroker.energy-gas** calculates gas consumption based on a meter reading or a counter and provides evaluation of:
 
-* Consumption (m³ & kWh)
-* Costs (energy price & base fee)
-* Monthly payments
-* Balance
-* Tariffs with automatic switching
+   * Consumption (m³ & kWh)
+   * Costs (energy price & base fee)
+   * Monthly payments
+   * Balance
+   * Tariffs with automatic switching
 
-The adapter is flexible and supports both classic gas meters and pulse or numeric counters (e.g. Zigbee, Tasmota, ESP, etc.).
+    The adapter is flexible and supports both classic gas meters and pulse or numeric counters (e.g. Zigbee, Tasmota, ESP, etc.).
 
 ---
 

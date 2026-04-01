@@ -1,182 +1,181 @@
 module.exports = {
-    info_connection: {
-        en: "Connection",
-        de: "Verbindung"
+    'Connection': {
+        en: 'Connection',
+        de: 'Verbindung',
+    },
+    'Meter reading': {
+        en: 'Meter reading',
+        de: 'Zählerstand',
+    },
+    'Counter': {
+        en: 'Counter',
+        de: 'Zähler',
+    },
+    'Conversion kWh per m³': {
+        en: 'Conversion kWh per m³',
+        de: 'Umrechnung kWh pro m³',
     },
 
-    consumption_meter_reading: {
-        en: "Meter reading",
-        de: "Zählerstand"
+    'Today consumption': {
+        en: 'Today consumption',
+        de: 'Heutiger Verbrauch',
     },
-    consumption_counter: {
-        en: "Counter",
-        de: "Zähler"
+    'Today energy': {
+        en: 'Today energy',
+        de: 'Heutige Energie',
     },
-    consumption_kwh_per_m3: {
-        en: "Conversion kWh per m³",
-        de: "Umrechnung kWh pro m³"
+    'Today cost': {
+        en: 'Today cost',
+        de: 'Heutige Kosten',
     },
-
-    today_consumption: {
-        en: "Today consumption",
-        de: "Heutiger Verbrauch"
+    'Today payments': {
+        en: 'Today payments',
+        de: 'Heutige Abschläge',
     },
-    today_kwh: {
-        en: "Today energy",
-        de: "Heutige Energie"
-    },
-    today_cost: {
-        en: "Today cost",
-        de: "Heutige Kosten"
-    },
-    today_payments: {
-        en: "Today payments",
-        de: "Heutige Abschläge"
-    },
-    today_balance: {
-        en: "Today balance",
-        de: "Heutiger Saldo"
+    'Today balance': {
+        en: 'Today balance',
+        de: 'Heutiger Saldo',
     },
 
-    yesterday_consumption: {
-        en: "Yesterday consumption",
-        de: "Gestriger Verbrauch"
+    'Yesterday consumption': {
+        en: 'Yesterday consumption',
+        de: 'Gestriger Verbrauch',
     },
-    yesterday_kwh: {
-        en: "Yesterday energy",
-        de: "Gestrige Energie"
+    'Yesterday energy': {
+        en: 'Yesterday energy',
+        de: 'Gestrige Energie',
     },
-    yesterday_cost: {
-        en: "Yesterday cost",
-        de: "Gestrige Kosten"
+    'Yesterday cost': {
+        en: 'Yesterday cost',
+        de: 'Gestrige Kosten',
     },
-    yesterday_payments: {
-        en: "Yesterday payments",
-        de: "Gestrige Abschläge"
+    'Yesterday payments': {
+        en: 'Yesterday payments',
+        de: 'Gestrige Abschläge',
     },
-    yesterday_balance: {
-        en: "Yesterday balance",
-        de: "Gestriger Saldo"
-    },
-
-    month_consumption: {
-        en: "Month consumption",
-        de: "Monatsverbrauch"
-    },
-    month_kwh: {
-        en: "Month energy",
-        de: "Monatsenergie"
-    },
-    month_cost: {
-        en: "Month cost",
-        de: "Monatskosten"
-    },
-    month_payments: {
-        en: "Month payments",
-        de: "Monatsabschläge"
-    },
-    month_balance: {
-        en: "Month balance",
-        de: "Monatssaldo"
+    'Yesterday balance': {
+        en: 'Yesterday balance',
+        de: 'Gestriger Saldo',
     },
 
-    last_month_consumption: {
-        en: "Last month consumption",
-        de: "Verbrauch letzter Monat"
+    'Month consumption': {
+        en: 'Month consumption',
+        de: 'Monatsverbrauch',
     },
-    last_month_kwh: {
-        en: "Last month energy",
-        de: "Energie letzter Monat"
+    'Month energy': {
+        en: 'Month energy',
+        de: 'Monatsenergie',
     },
-    last_month_cost: {
-        en: "Last month cost",
-        de: "Kosten letzter Monat"
+    'Month cost': {
+        en: 'Month cost',
+        de: 'Monatskosten',
     },
-    last_month_payments: {
-        en: "Last month payments",
-        de: "Abschläge letzter Monat"
+    'Month payments': {
+        en: 'Month payments',
+        de: 'Monatsabschläge',
     },
-    last_month_balance: {
-        en: "Last month balance",
-        de: "Saldo letzter Monat"
-    },
-
-    billing_year_consumption: {
-        en: "Billing year consumption",
-        de: "Verbrauch Abrechnungsjahr"
-    },
-    billing_year_kwh: {
-        en: "Billing year energy",
-        de: "Energie Abrechnungsjahr"
-    },
-    billing_year_cost: {
-        en: "Billing year cost",
-        de: "Kosten Abrechnungsjahr"
-    },
-    billing_year_payments: {
-        en: "Billing year payments",
-        de: "Abschläge Abrechnungsjahr"
-    },
-    billing_year_balance: {
-        en: "Billing year balance",
-        de: "Saldo Abrechnungsjahr"
+    'Month balance': {
+        en: 'Month balance',
+        de: 'Monatssaldo',
     },
 
-    last_billing_year_consumption: {
-        en: "Last billing year consumption",
-        de: "Verbrauch letztes Abrechnungsjahr"
+    'Last month consumption': {
+        en: 'Last month consumption',
+        de: 'Verbrauch letzter Monat',
     },
-    last_billing_year_kwh: {
-        en: "Last billing year energy",
-        de: "Energie letztes Abrechnungsjahr"
+    'Last month energy': {
+        en: 'Last month energy',
+        de: 'Energie letzter Monat',
     },
-    last_billing_year_cost: {
-        en: "Last billing year cost",
-        de: "Kosten letztes Abrechnungsjahr"
+    'Last month cost': {
+        en: 'Last month cost',
+        de: 'Kosten letzter Monat',
     },
-    last_billing_year_payments: {
-        en: "Last billing year payments",
-        de: "Abschläge letztes Abrechnungsjahr"
+    'Last month payments': {
+        en: 'Last month payments',
+        de: 'Abschläge letzter Monat',
     },
-    last_billing_year_balance: {
-        en: "Last billing year balance",
-        de: "Saldo letztes Abrechnungsjahr"
+    'Last month balance': {
+        en: 'Last month balance',
+        de: 'Saldo letzter Monat',
     },
 
-    day_start: {
-        en: "Day start",
-        de: "Tagesstart"
+    'Billing year consumption': {
+        en: 'Billing year consumption',
+        de: 'Verbrauch Abrechnungsjahr',
     },
-    day_start_date: {
-        en: "Day start date",
-        de: "Tagesstart Datum"
+    'Billing year energy': {
+        en: 'Billing year energy',
+        de: 'Energie Abrechnungsjahr',
     },
-    ledger_json: {
-        en: "Ledger data",
-        de: "Ledger-Daten"
+    'Billing year cost': {
+        en: 'Billing year cost',
+        de: 'Kosten Abrechnungsjahr',
     },
-    month_start: {
-        en: "Month start",
-        de: "Monatsstart"
+    'Billing year payments': {
+        en: 'Billing year payments',
+        de: 'Abschläge Abrechnungsjahr',
     },
-    month_marker: {
-        en: "Month marker",
-        de: "Monatsmarkierung"
+    'Billing year balance': {
+        en: 'Billing year balance',
+        de: 'Saldo Abrechnungsjahr',
     },
-    counter_offset_m3: {
-        en: "Counter offset",
-        de: "Zähleroffset"
+
+    'Last billing year consumption': {
+        en: 'Last billing year consumption',
+        de: 'Verbrauch letztes Abrechnungsjahr',
     },
-    counter_last_raw: {
-        en: "Last raw counter value",
-        de: "Letzter Rohzählerwert"
+    'Last billing year energy': {
+        en: 'Last billing year energy',
+        de: 'Energie letztes Abrechnungsjahr',
     },
-    counter_pulse_total: {
-        en: "Total counter pulses",
-        de: "Gesamt Impulse"
+    'Last billing year cost': {
+        en: 'Last billing year cost',
+        de: 'Kosten letztes Abrechnungsjahr',
     },
-    counter_detected_type: {
-        en: "Detected counter type",
-        de: "Erkannter Zählertyp"
-    }
+    'Last billing year payments': {
+        en: 'Last billing year payments',
+        de: 'Abschläge letztes Abrechnungsjahr',
+    },
+    'Last billing year balance': {
+        en: 'Last billing year balance',
+        de: 'Saldo letztes Abrechnungsjahr',
+    },
+
+    'Day start': {
+        en: 'Day start',
+        de: 'Tagesstart',
+    },
+    'Day start date': {
+        en: 'Day start date',
+        de: 'Tagesstart Datum',
+    },
+    'Ledger data': {
+        en: 'Ledger data',
+        de: 'Ledger-Daten',
+    },
+    'Month start': {
+        en: 'Month start',
+        de: 'Monatsstart',
+    },
+    'Month marker': {
+        en: 'Month marker',
+        de: 'Monatsmarkierung',
+    },
+    'Counter offset': {
+        en: 'Counter offset',
+        de: 'Zähleroffset',
+    },
+    'Last raw counter value': {
+        en: 'Last raw counter value',
+        de: 'Letzter Rohzählerwert',
+    },
+    'Total counter pulses': {
+        en: 'Total counter pulses',
+        de: 'Gesamtzahl Impulse',
+    },
+    'Detected counter type': {
+        en: 'Detected counter type',
+        de: 'Erkannter Zählertyp',
+    },
 };

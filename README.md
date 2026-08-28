@@ -167,6 +167,8 @@ is writable.
 * Gas meter and counter support
 * Tariff and cost calculation
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 MIT License
 
